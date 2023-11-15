@@ -11,7 +11,7 @@
 #include "main.h"
 #include "input_reading.h"
 
-#define TIMER_CYCLE			10
+#define TIMER_CYCLE			1
 
 int get_timer0_flag();
 void setTimer0(int duration);
