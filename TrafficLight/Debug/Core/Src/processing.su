@@ -1,0 +1,4 @@
+processing.c:14:6:UpdateMode	8	static
+processing.c:36:13:increaseDraftValue	4	static
+processing.c:55:13:setDurationValue	16	static
+processing.c:81:6:UpdateDurationValue	8	static

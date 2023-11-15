@@ -22,7 +22,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "processing.h"
+#include "led_display.h"
+#include "input_reading.h"
+#include "timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,13 +92,33 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  init_buffer();
+  LedTimeDurationInit();
+  setTimer0(10);
+  setTimer1(10);
+  setTimer2(10);
+  setTimer3(10);
   while (1)
   {
+	  UpdateMode();
+		  if (get_timer2_flag()) {
+			  LEDScanning();
+			  setTimer2(1);
+		  }
+
+		  LedDispMode();
+		  UpdateDurationValue();
+
+		  if (get_timer1_flag()) {
+			  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+			  setTimer1(500);
+		  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
