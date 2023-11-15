@@ -9,6 +9,7 @@
 #define INC_TIMER_H_
 
 #include "main.h"
+#include "input_reading.h"
 
 #define TIMER_CYCLE			10
 
